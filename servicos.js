@@ -1,0 +1,10 @@
+const express = require('express');
+const { getLista, getCliente, inserir, alterar, excluir } = require('./clienterecurso');
+const router = express.Router();
+router.get('/', (req,res) => res.json({ statusCode: 200, msg: 'API CRUD Cliente Rodando' }));
+router.get('/clientes', getLista);
+router.get('/cliente/:clienteId', getCliente);
+router.post('/cliente', inserir);
+router.put('/cliente/:clienteId', alterar);
+router.delete('/cliente/:clienteId', excluir);
+module.exports = router;
